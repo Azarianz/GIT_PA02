@@ -28,9 +28,16 @@ public class GameManager : MonoBehaviour
             HUD.HUDManager.DismissMessage();
         }
 
-        else if(CurrentState == GameState.GameOver && Input.GetKeyDown(KeyCode.Return))
+        if(Lives <= 0)
+        {
+            HUD.HUDManager.GameOver();
+        }
+
+        if(CurrentState == GameState.GameOver && Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene(0);
         }
+
+        
     }
 }
